@@ -11,3 +11,18 @@
 
 Например: +375(29)365-12-12
 """
+
+import re
+
+
+def check_phone(number: str):
+    pattern = r'^\+375\((29|33|44|25)\)\d{3}-\d{2}-\d{2}'
+    if re.match(pattern, number):
+        print('Все ок')
+    else:
+        print('не ок')
+
+
+if __name__ == '__main__':
+    check_phone('+375(33)333-33-33')
+    check_phone('+375(33)-333-33-33')

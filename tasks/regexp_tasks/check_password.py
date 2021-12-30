@@ -10,3 +10,19 @@
 Подсказка:
 Понадобится позитивный просмотр вперед (?=чтото)
 """
+import re
+
+
+def check_password(password: str):
+    pattern = r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!#%*?&]{8,40}$"
+    if re.fullmatch(pattern, password):
+        print('оК')
+    else:
+        print('НЕ ОК')
+
+
+if __name__ == '__main__':
+    check_password('Fdf!sdsaS3a')
+    check_password('SAD@!')
+    check_password('1232346')
+    check_password('Aa1!rj')
